@@ -2,25 +2,22 @@ pipeline {
     agent any
     
     stages {
-        stage('Build') {
+        stage('Clone') {
             steps {
-                // Add your build steps here
-                sh 'npm install'
-                sh 'npm run build'
+                git 'https://github.com/kmexnx/nullishh-web'
             }
         }
         
-        stage('Test') {
+        stage('Build') {
             steps {
-                // Add your test steps here
-                sh 'npm run test'
+                sh 'npm install'
+                sh 'npm run build'
             }
         }
         
         stage('Deploy') {
             steps {
                 // Add your deployment steps here
-                sh 'npm run deploy'
             }
         }
     }
