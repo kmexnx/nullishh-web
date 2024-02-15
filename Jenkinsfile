@@ -2,6 +2,8 @@ pipeline {
     agent any
     
     stages {
+        import org.jenkinsci.plugins.workflow.cps.stages.StageStep
+
         stage('Clone') {
             steps {
                 git 'https://github.com/kmexnx/nullishh-web'
@@ -12,12 +14,6 @@ pipeline {
             steps {
                 sh 'npm install'
                 sh 'npm run build'
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                // Add your deployment steps here
             }
         }
     }
